@@ -237,7 +237,7 @@ int uuencodeFile( FILE *infd, FILE *outfd, const char*filename,
 
 /* Case-incensitive string compare, return values eq. strncmp()
  */
-//int strincmp(const char *str1, const char *str2, unsigned len);
+/*int strincmp(const char *str1, const char *str2, unsigned len);*/
 
 
 /* Create new file (into inbound directory), if file exist increment:
@@ -245,6 +245,13 @@ int uuencodeFile( FILE *infd, FILE *outfd, const char*filename,
  * - suffix ("extension") for other.
  */
 FILE *createInboundFile(char **pathname);
+
+/* Move file into inbound directory. If file exist increment:
+ * - base part of filename - tic or pkt,
+ * - suffix ("extension") for other.
+ * Return 0 if success.
+ */
+int moveInboundFile( const char *srcfname, const char *dstdir );
 
 /* Define module information for config parser (config variables 'module',
  * 'version'; fill structure sApp).
